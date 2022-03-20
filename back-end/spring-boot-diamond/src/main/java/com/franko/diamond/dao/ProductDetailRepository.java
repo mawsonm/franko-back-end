@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin
 @RepositoryRestResource(collectionResourceRel = "productDetail", path ="product-detail")
 public interface ProductDetailRepository extends JpaRepository<ProductDetail, Long> {
     List<ProductDetail> findByProductId(@Param("product_id") Long productId);

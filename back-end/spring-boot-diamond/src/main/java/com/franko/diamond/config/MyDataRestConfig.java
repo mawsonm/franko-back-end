@@ -18,9 +18,6 @@ import java.util.Set;
 @Configuration
 public class MyDataRestConfig implements RepositoryRestConfigurer {
 
-    @Value("${allowed.origins}")
-    private String[] theAllowedOrigins;
-
     private EntityManager entityManager;
 
     @Autowired
@@ -44,7 +41,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         exposeIds(config);
 
-        cors.addMapping(config.getBasePath() + "/**").allowedOrigins(theAllowedOrigins);
+        cors.addMapping(config.getBasePath() + "/**");
     }
 
     private void disableHttpMethods(Class theClass, RepositoryRestConfiguration config, HttpMethod[] theUnsupportedActions) {
